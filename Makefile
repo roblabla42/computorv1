@@ -6,7 +6,7 @@
 #    By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 16:02:07 by roblabla          #+#    #+#              #
-#    Updated: 2015/03/30 16:04:54 by roblabla         ###   ########.fr        #
+#    Updated: 2015/03/30 16:16:52 by roblabla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME):
 	npm i
 	echo '#!/bin/sh' > ./computor
-	echo 'node ./computor.js "$@"' >> ./computor
+	echo 'node ./computor.js "$$@"' >> ./computor
 	chmod +x ./computor
 
 clean:
