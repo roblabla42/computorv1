@@ -6,7 +6,7 @@
 #    By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/03/30 16:02:07 by roblabla          #+#    #+#              #
-#    Updated: 2015/03/30 16:16:52 by roblabla         ###   ########.fr        #
+#    Updated: 2015/03/30 16:32:21 by roblabla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ clean:
 	rm -rf node_modules
 
 fclean: clean
-	rm computor
+	rm -f computor
 
 re: fclean all
 
