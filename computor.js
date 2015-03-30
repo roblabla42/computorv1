@@ -6,7 +6,7 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/03/30 15:48:50 by roblabla         ###   ########.fr       //
+//   Updated: 2015/03/30 16:27:13 by roblabla         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -105,6 +105,8 @@ polR.forEach(function (val) {
 
 function stringify(pol)
 {
+  if (polL.length == 0)
+    return "0 * X^0";
   var str = pol[0][0] + " * X^" + pol[0][1];
   pol.forEach(function(val, index) {
     if (index == 0)
@@ -136,7 +138,10 @@ if (max > 2)
 }
 if (max === 0)
 {
-  
+  if (polL.length != 0)
+    console.log("There are no solutions");
+  else
+    console.log("Every real is a solution");
 }
 if (max === 1)
 {
