@@ -1,0 +1,23 @@
+{
+  "name": "computorv1",
+  "version": "1.0.0",
+  "description": "42 project",
+  "main": "computor.js",
+  "dependencies": {
+    "array.prototype.findindex": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/roblabla42/computorv1.git"
+  },
+  "author": "roblabla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roblabla42/computorv1/issues"
+  },
+  "homepage": "https://github.com/roblabla42/computorv1"
+}
