@@ -6,7 +6,7 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/03/30 16:27:13 by roblabla         ###   ########.fr       //
+//   Updated: 2015/03/31 12:00:33 by rlambert         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -45,11 +45,11 @@ var concat = function(a, b) {
 // 2. [[num, index]] without order.
 function parseSide(pol) {
   return pol.split("-")
-            .filter(function (elem) {
-              return (elem != "");
-            })
             .map(function(elem, index) {
               return (index > 0 ? "-" : "") + elem
+            })
+            .filter(function (elem) {
+              return (elem != "");
             })
             .map(callMember("split", ["+"]))
             .reduce(concat, [])
@@ -94,7 +94,7 @@ polR.forEach(function (val) {
     return item[1] === val[1];
   });
   if (pos < 0)
-    polL.push(val);
+    polL.push([-val[0],val[1]]);
   else
   {
     polL[pos][0] -= val[0];
