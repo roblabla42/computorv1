@@ -6,10 +6,11 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/03/30 16:27:13 by roblabla         ###   ########.fr       //
+//   Updated: 2015/06/08 14:59:04 by roblabla         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
+require('array.prototype.find');
 require('array.prototype.findindex');
 
 if (process.argv.length < 3)
@@ -18,7 +19,7 @@ if (process.argv.length < 3)
   process.exit(0);
 }
 
-var formula = process.argv.slice(2).join("").split(" ").join("").split("=");
+var formula = process.argv.slice(2).join("").toUpperCase().split(" ").join("").split("=");
 if (formula.length !== 2)
 {
   console.log("Usage: ./computor \"<pol> = <pol>\"");
@@ -40,21 +41,20 @@ var concat = function(a, b) {
   return a.concat(b);
 }
 
-// TODO : Deliberate best format : 
-// 1. [num] with index === pow OR
-// 2. [[num, index]] without order.
+// [[num, index]] without order.
 function parseSide(pol) {
   return pol.split("-")
-            .filter(function (elem) {
-              return (elem != "");
-            })
             .map(function(elem, index) {
               return (index > 0 ? "-" : "") + elem
+            })
+            .filter(function (elem) {
+              return (elem != "");
             })
             .map(callMember("split", ["+"]))
             .reduce(concat, [])
             .map(callMember("split", ["X"]))
             .map(function(elem) {
+              console.log(elem);
               if (elem.length === 1)
                 elem = [parseFloat(elem), 0];
               else if (elem.length === 2)
@@ -96,11 +96,11 @@ polR.forEach(function (val) {
   if (pos < 0)
     polL.push(val);
   else
-  {
     polL[pos][0] -= val[0];
-    if (polL[pos][0] === 0)
-      polL.splice(pos, 1);
-  }
+});
+
+polL = polL.filter(function (x) {
+  return (x[0] !== 0);
 });
 
 function stringify(pol)
@@ -136,6 +136,12 @@ if (max > 2)
   console.log("The polynomial degree is strictly greater than", max, ", I can't solve");
   process.exit(0);
 }
+var a = polL.find(function(x) { return x[1] == 2; });
+var b = polL.find(function(x) { return x[1] == 1; });
+var c = polL.find(function(x) { return x[1] == 0; });
+a = a ? a[0] : 0;
+b = b ? b[0] : 0;
+c = c ? c[0] : 0;
 if (max === 0)
 {
   if (polL.length != 0)
@@ -146,13 +152,10 @@ if (max === 0)
 if (max === 1)
 {
   console.log("The solution is:");
-  console.log((-polL[0][0]) / polL[1][0]);
+  console.log(b / c);
 }
 if (max === 2)
 {
-  var a = polL[2][0];
-  var b = polL[1][0];
-  var c = polL[0][0];
   // Calculate delta
   var delta = b * b - 4 * a * c;
   console.log("Discriminent is :", delta);

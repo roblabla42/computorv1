@@ -4,7 +4,8 @@
   "description": "42 project",
   "main": "computor.js",
   "dependencies": {
-    "array.prototype.findindex": "^1.0.0"
+    "array.prototype.findindex": "^1.0.0",
+    "array.prototype.find": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
