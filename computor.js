@@ -6,7 +6,7 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/06/08 15:26:30 by roblabla         ###   ########.fr       //
+//   Updated: 2015/06/08 15:27:22 by roblabla         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -54,7 +54,6 @@ function parseSide(pol) {
             .reduce(concat, [])
             .map(callMember("split", ["X"]))
             .map(function(elem) {
-              console.log(elem);
               if (elem.length === 1)
                 elem = [parseFloat(elem), 0];
               else if (elem.length === 2)
