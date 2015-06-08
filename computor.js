@@ -6,7 +6,7 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/06/08 14:59:04 by roblabla         ###   ########.fr       //
+//   Updated: 2015/06/08 15:26:30 by roblabla         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -94,7 +94,7 @@ polR.forEach(function (val) {
     return item[1] === val[1];
   });
   if (pos < 0)
-    polL.push(val);
+    polL.push([-val[0],val[1]]);
   else
     polL[pos][0] -= val[0];
 });
