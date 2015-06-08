@@ -6,7 +6,7 @@
 //   By: roblabla </var/spool/mail/roblabla>        +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2015/03/26 16:42:28 by roblabla          #+#    #+#             //
-//   Updated: 2015/06/08 15:27:22 by roblabla         ###   ########.fr       //
+//   Updated: 2015/06/08 15:30:33 by roblabla         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -151,7 +151,7 @@ if (max === 0)
 if (max === 1)
 {
   console.log("The solution is:");
-  console.log(b / c);
+  console.log(c / b);
 }
 if (max === 2)
 {
